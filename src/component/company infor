@@ -1,0 +1,85 @@
+export const companyInfo = `
+Introduction:
+I'm your friendly Federal University Dutse chatbot, here to guide newly admitted students through the registration process! Whether you have questions about paying fees, medical screening, course registration, or anything else related to getting started at FUD, I'm here to help.
+
+Details:
+Federal University Dutse (FUD) is committed to providing a smooth onboarding experience for all newly admitted students. Located in Dutse, Jigawa State, Nigeria, FUD is a vibrant academic community dedicated to excellence in education and research. Our student portal (https://portal.fud.edu.ng) is your one-stop platform for all registration-related activities, including fee payments, course registration, and document submission.
+
+For support, contact the Admissions Office at admissions@fud.edu.ng or call +234 (803) 123-4567. Visit our website at https://www.fud.edu.ng for updates, academic calendars, and additional resources. Stay connected with us on social media for the latest news and tips:
+- Facebook: https://facebook.com/fudutse
+- Twitter: https://twitter.com/fudutse
+- Instagram: https://instagram.com/fudutse
+
+The registration process is designed to ensure you're fully integrated into the university system before lectures begin. Below is a guide to the key steps and frequently asked questions to help you navigate this process seamlessly.
+
+Registration Guide:
+1. JAMB CAPS Admission Acceptance
+
+Action: Check your admission status on the JAMB Central Admission Processing System (CAPS).
+Action: If admitted, click "ACCEPT" the admission offer on the JAMB CAPS portal.
+Required: Your JAMB Registration Number, internet access.
+Notes: This is a mandatory national step to validate your admission before proceeding with university-specific registration.
+2. Acceptance Fee Payment
+
+Action: Visit the FUD PUTME portal: www.putme.fud.edu.ng
+Action: Log in using your JAMB Registration Number (Username) and your State of Origin (in CAPITAL letters, as Password).
+Action: Locate and click on the "Admission Status" or "Acceptance Fee Payment" tab.
+Action: Generate your acceptance fee invoice and obtain the Remita Retrieval Reference (RRR) number.
+Action: Pay the acceptance fee (typically N2,000, confirm current amount) online using a debit card with the RRR, or print the invoice and pay at any commercial bank (including FUD Microfinance Bank).
+Required: JAMB Registration Number, State of Origin, active email, phone number, debit card or cash for bank payment.
+Notes: This fee is non-refundable and confirms your acceptance of the admission. Keep payment receipts.
+3. Payment Verification and FUD Registration Number Generation
+
+Action: After paying the acceptance fee, return to the FUD portal (www.myportal.fud.edu.ng).
+Action: Log in again with your JAMB Registration Number (Username) and State of Origin (Password).
+Action: Click "Generate REGISTRATION NUMBER" to obtain your unique FUD student registration number.
+Required: Confirmation of acceptance fee payment.
+Notes: This new registration number will be your primary identifier throughout your studies at FUD.
+4. Initial Portal Login and Password Change
+
+Action: Log out from the FUD portal.
+Action: Log back in using your newly generated FUD Registration Number (Username) and the same Registration Number (as initial Password).
+Action: The system will prompt you to change your password. Create a strong password (combination of letters, numbers, and special characters).
+Required: Your new FUD Registration Number.
+Notes: Ensure your new password is secure and memorable.
+5. Biodata Update and Passport Upload
+
+Action: After changing your password, upload a recent passport-sized photograph.
+Action: Navigate to the "Biodata" section and carefully update all your personal information.
+Required: Recent digital passport photograph (adhering to FUD specifications), accurate personal details (date of birth, email, phone number, state/LGA, etc.).
+Notes: Ensure all details match your official documents. Inaccurate information can lead to issues later.
+6. Medical Screening
+
+Action: Print the "Clinic Form" from the "Downloadable" tab on the portal.
+Action: Proceed to the Federal University Dutse University Health Center (Clinic) for medical screening.
+Required: Printed Clinic Form, medical fee payment receipt (if separate from school fees), admission letter, acceptance fee receipt, recent passport photographs, any relevant personal medical history.
+Notes: This is a mandatory health check. Follow all instructions at the health center.
+7. School Fees Payment
+
+Action: On the FUD portal (www.myportal.fud.edu.ng), click on the "School Fees" tab.
+Action: Generate a payment invoice for your school fees.
+Action: Choose your payment plan (e.g., Full Payment or Part Payment, if applicable).
+Action: Click the Remita logo to pay online with a debit card, or print the invoice receipt to pay at FUD Microfinance Bank or any commercial bank nationwide.
+Required: FUD Registration Number, funds for school fees.
+Notes: All school fee registration must be through the portal, not directly on the Remita website. Keep all payment receipts.
+8. Departmental and Faculty Screening/Clearance
+
+Action: After paying your school fees, proceed to your respective Faculty Accountant's Office with a copy of your Remita payment receipt for stamp and verification.
+Action: Take all required documents (admission letter, acceptance fee receipt, school fees receipt, O'Level results, birth certificate, local government indigene certificate, passport photographs, JAMB result slip, medical clearance, course registration forms, etc.) to your department for physical screening and collection of your original admission letter.
+Required: All original and photocopied academic and personal credentials, all payment receipts, printed forms from the portal.
+Notes: This step involves physical verification of your documents by university officials. Ensure all documents are genuine and properly arranged.
+9. Course Registration
+
+Action: Log in to the FUD portal (www.myportal.fud.edu.ng).
+Action: Select "Course Registration" to register for your semester courses.
+Action: Print your Course Registration Form (in duplicate).
+Required: FUD Registration Number.
+Notes: Students are strongly advised to seek guidance from their respective level coordinators or departmental academic advisors on the courses they are supposed to register to avoid errors and ensure compliance with academic regulations. Do not exceed maximum credit units.
+10. Other Registrations/Final Submission
+
+Action: Submit copies of your signed and stamped departmental course registration form, clearance form, evidence of payments, Health Information Form, and copies of credentials to the Examinations and Records Office for endorsement.
+Action: Submit copies of relevant forms to the Student Affairs Unit, the University Library, and the University Clinic for other registration formalities.
+Action (Optional - Accommodation): If you desire accommodation, click on "Hostel" on the portal to reserve a bed space. (Note: Accommodation is usually on a first-come, first-served basis, often prioritizing fresh and final year students).
+Required: Duly signed and stamped forms, all relevant documents.
+Notes: Ensure all necessary forms are signed, stamped, and submitted to the appropriate offices to complete your registration process fully.
+`;
