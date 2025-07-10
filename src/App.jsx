@@ -6,7 +6,7 @@ import ChatForm from "./component/ChatForm";
 import ChatMessage from "./component/ChatMessage";
 import { companyInfo } from "./component/company infor";
 import LoginPage from "./component/chatlogin";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import { FaArrowDown, FaArrowUp} from "react-icons/fa";
 
 const App = () => {
   const [chatHistory, setChatHistory] = useState([
@@ -14,8 +14,7 @@ const App = () => {
   ]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const chatBodyRef = useRef();
-  // const [isOpen, setIsOpen] = useState(false);
-
+  
   const apiKey =
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC7ZtncSH5Ft-JIfAyECp1K-Ce-2R_Grp8";
 
@@ -137,7 +136,7 @@ const App = () => {
           </div>
           <button
             onClick={handleLogout}
-            className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 text-sm"
+            className=""
           >
             Log Out
           </button>

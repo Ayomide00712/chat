@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { GoArrowUp } from "react-icons/go";
 
 const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
   const inputRef = useRef();
@@ -34,7 +35,9 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         required
       />
       <button>
-        <span className="material-symbols-outlined">keyboard_arrow_down</span>
+        <span className="text-white text-xl flex items-center justify-center">
+          <GoArrowUp />
+        </span>
       </button>
     </form>
   );

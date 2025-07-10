@@ -38,23 +38,35 @@ const LoginPage = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true);
       setError("");
     } catch (err) {
-      setError(`Login failed: ${err.message}`);
-      console.error("Login error details:", err);
+      // console.error("Login error details:", err.code, err.message);
+      if (err.code === "auth/user-not-found") {
+        setError(
+          "User not found. Please register with this JAMB number or contact support."
+        );
+      } else if (err.code === "auth/wrong-password") {
+        setError("Incorrect password. Please try again.");
+      } else if (err.code === "auth/invalid-credential") {
+        setError(
+          "User not found. Please register with this JAMB number or contact support."
+        );
+      } else {
+        setError(`Login failed: ${err.message}`);
+      }
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">
+    <div className="flex items-center justify-center main">
+      <div className="p-17 rounded-lg container-login">
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-6">
           FUD Chatbot Login
         </h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-10 form">
           <div>
             <label
               htmlFor="jambNumber"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm md:text-2xl font-bold"
             >
               JAMB Number
             </label>
@@ -64,14 +76,14 @@ const LoginPage = ({ setIsAuthenticated }) => {
               value={jambNumber}
               onChange={(e) => setJambNumber(e.target.value.toUpperCase())}
               required
-              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="e.g., 2025123456AB"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-bold text-gray-700"
             >
               Password
             </label>
@@ -81,13 +93,13 @@ const LoginPage = ({ setIsAuthenticated }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="Enter your password"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+            className="w-full py-4 px-3 bg-indigo-500 text-white rounded hover:bg-indigo-400 transition"
           >
             Log In
           </button>
