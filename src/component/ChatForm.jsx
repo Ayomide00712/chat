@@ -10,20 +10,11 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
     inputRef.current.value = "";
     console.log(userMessage);
 
-    // update chat history with the user message
+    // Update chat history with the user message and trigger bot response
     setChatHistory((history) => [
       ...history,
       { role: "user", text: userMessage },
     ]);
-    // Add a Thinking placeholder for the bot's response
-    setTimeout(
-      () =>
-        setChatHistory((history) => [
-          ...history,
-          { role: "model", text: "Thinking..." },
-        ]),
-      600
-    );
     generateBotResponse([
       ...chatHistory,
       {
@@ -41,9 +32,9 @@ const ChatForm = ({ chatHistory, setChatHistory, generateBotResponse }) => {
         placeholder="Message..."
         className="message-input"
         required
-      ></input>
+      />
       <button>
-        <span class="material-symbols-outlined">keyboard_arrow_down</span>
+        <span className="material-symbols-outlined">keyboard_arrow_down</span>
       </button>
     </form>
   );
