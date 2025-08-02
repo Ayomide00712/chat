@@ -3,13 +3,16 @@ import Chatboticon from "./chatboticon";
 const urlRegex = /(https?:\/\/[^\s<>"']+)/g;
 
 const parseLinks = (text) => {
+  // Split the text by URLs and ensure proper link detection
   const parts = text.split(urlRegex);
   return parts.map((part, index) => {
     if (part.match(urlRegex)) {
+      // Normalize the URL to ensure it starts with http:// or https://
+      const normalizedUrl = part.startsWith("http") ? part : `https://${part}`;
       return (
         <a
           key={index}
-          href={part}
+          href={normalizedUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="chat-link"
@@ -20,12 +23,17 @@ const parseLinks = (text) => {
         </a>
       );
     }
-    return part;
+    // Replace newlines with <br /> for proper formatting
+    return part.split("\n").map((line, i, arr) => (
+      <span key={`${index}-${i}`}>
+        {line}
+        {i < arr.length - 1 && <br />}
+      </span>
+    ));
   });
 };
 
-
-const ChatMessage = ({chat}) => {
+const ChatMessage = ({ chat }) => {
   return (
     !chat.hideInChat && (
       <div
@@ -36,6 +44,6 @@ const ChatMessage = ({chat}) => {
       </div>
     )
   );
-}
+};
 
-export default ChatMessage
+export default ChatMessage;

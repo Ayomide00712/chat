@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState, useEffect } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
-const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
+const SignupPage = ({ setIsAuthenticated, setShowSignup }) => {
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,7 +18,7 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
     return phoneRegex.test(phone);
   };
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     if (!isValidEmail(email)) {
       setError("Invalid email address.");
@@ -29,35 +30,51 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
     }
 
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         phoneNumber
       );
-      console.log("Login successful for user:", userCredential.user.email);
-      setIsAuthenticated(true);
+      console.log("Signup successful for user:", userCredential.user.email);
+      setSuccess("Account created successfully! Welcome to FUD Chatbot.");
       setError("");
+      // Clear form inputs
+      setEmail("");
+      setPhoneNumber("");
+      // Automatically redirect to chat interface after 3 seconds
+      setTimeout(() => {
+        setIsAuthenticated(true);
+      }, 3000);
     } catch (err) {
-      if (err.code === "auth/user-not-found") {
-        setError("User not found. Please sign up or contact support.");
-      } else if (err.code === "auth/wrong-password") {
-        setError("Incorrect phone number. Please try again.");
-      } else if (err.code === "auth/invalid-credential") {
-        setError("Invalid credentials. Please sign up or contact support.");
+      if (err.code === "auth/email-already-in-use") {
+        setError(
+          "Email is already registered. Please log in or use a different email."
+        );
       } else {
-        setError(`Login failed: ${err.message}`);
+        setError(`Signup failed: ${err.message}`);
       }
+      setSuccess("");
     }
   };
+
+  // Clear success message when navigating back to login
+  useEffect(() => {
+    return () => setSuccess("");
+  }, []);
 
   return (
     <div className="flex items-center justify-center main">
       <div className="p-17 rounded-lg container-login">
-        <h2 className="text-2xl md:text-4xl  font-bold text-center mb-6">
-          FUD CHATBOT
+        <h2 className="text-2xl md:text-4xl font-bold text-center mb-6">
+          FUD Chatbot Signup
         </h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
-        <form onSubmit={handleLogin} className="space-y-10 form">
+        {success && (
+          <p className="text-green-500 text-center mb-4 bg-green-100 p-2 rounded">
+            {success}
+          </p>
+        )}
+        <form onSubmit={handleSignup} className="space-y-10 form">
           <div>
             <label
               htmlFor="email"
@@ -72,7 +89,7 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="user@example.com"
+              placeholder="e.g., user@example.com"
             />
           </div>
           <div>
@@ -80,7 +97,7 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
               htmlFor="phoneNumber"
               className="block text-sm font-bold text-gray-700"
             >
-            Password
+              Phone Number (Password)
             </label>
             <input
               id="phoneNumber"
@@ -89,23 +106,23 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
               onChange={(e) => setPhoneNumber(e.target.value)}
               required
               className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              placeholder="090123456789"
+              placeholder="e.g., +1234567890"
             />
           </div>
           <button
             type="submit"
             className="w-full py-4 px-3 bg-indigo-500 text-white rounded hover:bg-indigo-400 transition"
           >
-            Log In
+            Sign Up
           </button>
         </form>
-        <p className="text-center mt-6">
-          Don't have an account?{" "}
+        <p className="text-center mt-4">
+          Already have an account?{" "}
           <button
-            onClick={() => setShowSignup(true)}
+            onClick={() => setShowSignup(false)}
             className="text-indigo-500 hover:underline"
           >
-            Sign Up
+            Log In
           </button>
         </p>
       </div>
@@ -113,4 +130,4 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

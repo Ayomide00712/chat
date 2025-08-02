@@ -6,15 +6,17 @@ import ChatForm from "./component/ChatForm";
 import ChatMessage from "./component/ChatMessage";
 import { companyInfo } from "./component/company infor";
 import LoginPage from "./component/chatlogin";
-import { FaArrowDown, FaArrowUp} from "react-icons/fa";
+import SignupPage from "./component/SignupPage";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
 const App = () => {
   const [chatHistory, setChatHistory] = useState([
     { text: companyInfo, hideInChat: true, role: "model" },
   ]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
   const chatBodyRef = useRef();
-  
+
   const apiKey =
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC7ZtncSH5Ft-JIfAyECp1K-Ce-2R_Grp8";
 
@@ -120,24 +122,28 @@ const App = () => {
   };
 
   if (!isAuthenticated) {
-    return <LoginPage setIsAuthenticated={setIsAuthenticated} />;
+    return showSignup ? (
+      <SignupPage
+        setIsAuthenticated={setIsAuthenticated}
+        setShowSignup={setShowSignup}
+      />
+    ) : (
+      <LoginPage
+        setIsAuthenticated={setIsAuthenticated}
+        setShowSignup={setShowSignup}
+      />
+    );
   }
 
   return (
     <div className="container">
-      {/* <button id="chatbot-toggler" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <FaArrowDown /> : <FaArrowUp />}
-      </button> */}
       <div className="chatbot-popup">
         <div className="chat-header flex justify-between items-center p-2 bg-gray-200">
           <div className="header-info flex items-center">
             <Chatboticon />
             <h2 className="logo-text text-xl font-bold ml-2">Chatbot</h2>
           </div>
-          <button
-            onClick={handleLogout}
-            className=""
-          >
+          <button onClick={handleLogout} className="">
             Log Out
           </button>
         </div>
