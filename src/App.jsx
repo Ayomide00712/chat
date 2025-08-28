@@ -9,7 +9,7 @@ import LoginPage from "./component/chatlogin";
 import SignupPage from "./component/SignupPage";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
-const App = () => {
+const App = () => { 
   const [chatHistory, setChatHistory] = useState([
     { text: companyInfo, hideInChat: true, role: "model" },
   ]);
@@ -18,7 +18,7 @@ const App = () => {
   const chatBodyRef = useRef();
 
   const apiKey =
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC7ZtncSH5Ft-JIfAyECp1K-Ce-2R_Grp8";
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyAr85KZKILga3owZX4HXyhBaNwksd1q1gA";
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
