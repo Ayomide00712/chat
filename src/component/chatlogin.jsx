@@ -54,7 +54,7 @@ const LoginPage = ({ setIsAuthenticated, setShowSignup }) => {
     <div className="flex items-center justify-center main">
       <div className="p-17 rounded-lg container-login">
         <h2 className="text-2xl md:text-4xl  font-bold text-center mb-6">
-          FUD CHATBOT
+          AUK CHATBOT
         </h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleLogin} className="space-y-10 form">

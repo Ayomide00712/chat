@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 
 const SignupPage = ({ setIsAuthenticated, setShowSignup }) => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -66,7 +66,7 @@ const SignupPage = ({ setIsAuthenticated, setShowSignup }) => {
     <div className="flex items-center justify-center main">
       <div className="p-17 rounded-lg container-login">
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-6">
-          FUD Chatbot Signup
+          AUK Chatbot Signup
         </h2>
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         {success && (
